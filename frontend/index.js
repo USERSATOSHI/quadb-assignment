@@ -78,7 +78,7 @@ const globalData = {
     names: [],
     data: [],
 };
-
+const mainnote = document.getElementById("mainnote");
 const fetchTicker = async (value) => {
     if (!globalData.data.find((x) => x.data.key === value + "inr")) {
         const response = await fetch(
@@ -116,7 +116,9 @@ const renderTicker = async (value) => {
     onehour.innerHTML = data.OneHour + "%";
     oneday.innerHTML = data.OneDay + "%";
     oneweek.innerHTML = data.OneWeek + "%";
+
     const x = data.data;
+        mainnote.innerHTML = `Average ${x.name} net price including commission`;
 
     /*
         <tr class="item -dark">

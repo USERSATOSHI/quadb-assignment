@@ -16,3 +16,4 @@ Duration: 12 hrs 40 mins
 * added timer that updates the display values
 * menu dropdown for different cryptocurrency shows updated value for wazirX platform
 * animated theme mode
+
