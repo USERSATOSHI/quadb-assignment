@@ -81,15 +81,18 @@ const globalData = {
 
 const fetchTicker = async (value) => {
     if (!globalData.data.find((x) => x.data.key === value + "inr")) {
-        const response = await fetch("http://localhost:3000/tickers", {
-            method: "POST",
-            body: JSON.stringify({
-                ticker: value,
-            }),
-            headers: {
-                "Content-Type": "application/json",
+        const response = await fetch(
+            "https://quadb-assignment-backend.onrender.com/tickers",
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    ticker: value,
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
             },
-        });
+        );
         const data = await response.json();
         // // // // console.log(data);
 
@@ -202,7 +205,9 @@ const renderTicker = async (value) => {
 };
 
 const fetchNames = async () => {
-    const response = await fetch("http://localhost:3000/tickers/names");
+    const response = await fetch(
+        "https://quadb-assignment-backend.onrender.com/tickers/names",
+    );
     const data = await response.json();
     // // console.log(data);
 
@@ -244,7 +249,9 @@ const updateSelected = () => {
     renderTicker(selected);
 };
 const updateTickers = async () => {
-    const response = await fetch("http://localhost:3000/tickers?limit=10");
+    const response = await fetch(
+        "https://quadb-assignment-backend.onrender.com/tickers?limit=10",
+    );
     const data = await response.json();
     // // console.log(data);
     globalData.data = data.data;
