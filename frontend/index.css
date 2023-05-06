@@ -1,0 +1,634 @@
+:root {
+    --bg: #191d28;
+    --contrast: #3dc6c1;
+    --text: #ffffff;
+    --down: #d45757;
+    --up: #5dc7b1;
+    --sbg: #2e3241;
+    --sbg-light: #f8f9fa;
+    --border: #4d535d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    transition: 500ms;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+.dark {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.-dark {
+    background-color: var(--sbg);
+    color: var(--text);
+}
+
+.-light {
+    background-color: var(--sbg-light);
+    color: var(--bg);
+}
+
+.light {
+    background-color: var(--text);
+    color: var(--bg);
+}
+
+.nav {
+    padding: 16px 32px 0px;
+    width: 100%;
+    min-height: 128px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo {
+    height: 100%;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .logo img {
+    width: 75%;
+}
+
+.nav .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.nav .buttons .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 32px;
+    transition: 250ms background-color ease-in-out, 250ms color ease-in-out;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+select option {
+    color: var(--bg);
+    background-color: var(--text);
+    font-weight: 700;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.nav .buttons .menu:focus,
+.nav .buttons .menu:hover {
+    outline: 3px solid var(--border);
+}
+
+.nav .buttons .menu:active {
+    background-color: var(--border);
+}
+
+select {
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+}
+
+.nav .buttons .buybtc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border: none;
+    padding: 16px;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: 250ms background-color ease-in-out, 250ms color ease-in-out;
+    text-rendering: optimizeLegibility;
+    text-transform: uppercase;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+.nav .buttons .buybtc:active,
+.nav .buttons .buybtc:focus {
+    outline: 3px solid var(--border);
+}
+
+.nav .options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.nav .options .timer {
+    height: 50px;
+    width: 50px;
+}
+
+.nav .options .connectTelegram {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+    text-align: center;
+    border: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    word-spacing: 0.2px;
+    font-size: 16px;
+    background-color: var(--contrast);
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: 500ms;
+    word-break: keep-all;
+    flex-wrap: nowrap;
+}
+
+.nav .options .connectTelegram:hover {
+    color: var(--contrast);
+    background-color: var(--theme);
+    box-shadow: 0 0 8px 2px var(--contrast);
+    cursor: pointer;
+}
+
+.nav .options .connectTelegram .telegramlogo {
+    height: 16px;
+    padding-left: 8px;
+    transition: 500ms;
+}
+
+.switch {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+    aspect-ratio: 2/1;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: relative;
+    cursor: pointer;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--border);
+    background-color: var(--sbg-light);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 16px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    background-color: var(--contrast);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--sbg);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 16px 2px var(--contrast);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(32px);
+    -ms-transform: translateX(32px);
+    transform: translateX(32px);
+}
+
+.displayMoney {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.displayMoney .head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #7e8086;
+    font-weight: 700;
+    font-size: 32px;
+    word-spacing: 0.2%;
+    letter-spacing: 0.5px;
+}
+
+.displayMoney .display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+}
+
+.displayMoney .display .con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.displayMoney .display .con .note {
+    color: #7e8086;
+    font-weight: 500;
+    font-size: 20px;
+    word-spacing: 0.2%;
+    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.displayMoney .display .con .note.mainnote {
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    font-weight: 700;
+}
+
+.displayMoney .display .con .number {
+    color: var(--contrast);
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.displayMoney .display .con .big {
+    font-size: 50px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.lightText {
+    color: var(--bg);
+}
+
+.darkText {
+    color: var(--text);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.transactions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 95%;
+    margin-top: 32px;
+    white-space: nowrap;
+}
+
+.transactions .headings {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 95%;
+    gap: 6.5vw;
+}
+
+.transactions .hh {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.transactions .headings .head {
+    color: #7e8086;
+    font-size: 24px;
+    font-weight: bolder;
+    word-spacing: 0.2%;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    white-space: nowrap;
+}
+
+.down {
+    color: var(--down);
+}
+
+.up {
+    color: var(--up);
+}
+
+.transactions .table {
+    display: flex;
+    min-width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: max-content;
+    margin-top: 16px;
+}
+
+.transactions .table .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 6vw;
+    border-radius: 16px;
+}
+
+.transactions .table .item .platform {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.transactions .table .item .platform .logo {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+}
+
+.transactions .table .item .platform .logo img {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+#buy-sell {
+    width: 280px;
+}
+.transactions .table .item .text {
+    font-size: 16px;
+    font-weight: 700;
+    word-spacing: 0.2%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+}
+
+.footer {
+    margin-top: 32px;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 128px;
+    border-top: 2px solid var(--border);
+}
+
+.footer .copy,
+.footer .support {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 16px;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 16px;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    word-spacing: 0.2%;
+    font-weight: 700;
+    color: #7e8086;
+}
+
+.footer .support {
+    margin-left: 0;
+    margin-right: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 1100px) {
+    .transactions .table .item {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .transactions .headings {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .transactions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .displayMoney .display .con .big {
+        font-size: 32px;
+    }
+    .displayMoney .display .con .number {
+        white-space: nowrap;
+        font-size: 17.5px;
+    }
+    .displayMoney .display .con .note.mainnote {
+        font-size: 8px;
+    }
+    .displayMoney .display .con .note {
+        font-size: 10px;
+    }
+
+    .nav .options .connectTelegram {
+        font-size: 16px;
+    }
+    .nav .options .connectTelegram .telegramlogo {
+        height: 16px;
+        padding-left: 0;
+    }
+    .displayMoney .head {
+        font-size: 20px;
+    }
+
+    .transactions .headings {
+        justify-content: flex-start;
+    }
+
+    .transactions {
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .nav {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nav .buttons,
+    .nav .options {
+        gap: 8px;
+    }
+    .nav .logo {
+        width: 100%;
+    }
+    .displayMoney .display {
+        gap: 8px;
+    }
+    .displayMoney .head {
+        font-size: 20px;
+    }
+    .displayMoney .display .con .big {
+        font-size: 20px;
+    }
+    .displayMoney .display .con .number {
+        font-size: 12px;
+    }
+
+    .displayMoney .display .con .note {
+        font-size: 12px;
+    }
+
+    .displayMoney .display .con .note.mainnote {
+        font-size: 10px;
+    }
+
+    .nav .options .connectTelegram {
+        font-size: 10px;
+    }
+    .nav .options .connectTelegram .telegramlogo {
+        height: 15px;
+        padding-left: 0;
+    }
+
+    .slider {
+        width: 40px;
+        height: 20px;
+    }
+
+    .slider:before {
+        height: 16px;
+        width: 16px;
+        left: 1px;
+        bottom: 0px;
+    }
+    input:checked + .slider:before {
+        -webkit-transform: translateX(18px);
+        -ms-transform: translateX(18px);
+        transform: translateX(18px);
+    }
+
+    .timer {
+        font-size: 10px;
+    }
+
+    .transactions .headings {
+        gap: 3vw;
+    }
+    /*
+    .transactions .table .item .text {
+        font-size: 10px;
+    }
+
+    .transactions .table .item .platform  {
+        gap:2px;
+    }
+
+    .transactions .table .item .platform .logo {
+        width: 10px;
+    }
+
+    .transactions .table .item .platform .logo img {
+        height: 100%;
+        width: 100%;
+    } */
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <!-- icon -->
+        <link
+            rel="icon"
+            href="./assets/icon.png"
+            type="image/png"
+            sizes="16x16"
+        />
+        <title>Hodlinfo</title>
+    </head>
+    <body class="dark">
+        <div class="nav">
+            <a href="./" class="logo"
+                ><img
+                    src="https://hodlinfo.com/static/media/HODLINFO.8f78fc06.png"
+                    alt="HODLINFO"
+            /></a>
+            <div class="buttons">
+                <!-- dropdown -->
+                <select
+                    name="currency"
+                    class="menu -dark"
+                    id="curr"
+                    role="menu"
+                >
+                    <option value="INR" role="menuitem">INR</option>
+                </select>
+                <select
+                    name="crypto"
+                    id="crypto"
+                    class="menu -dark"
+                    role="menu"
+                    oninput="updateSelected()"
+                >
+                   <option value="btc" role="menuitem">BTC</option>
+                </select>
+                <button class="buybtc -dark">Buy BTC</button>
+            </div>
+            <div class="options">
+                <div class="timer">
+                    <!-- circular progress bar svg -->
+                    <svg
+                        class="progress-ring"
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                    >
+                        <circle
+                            class="outerring"
+                            stroke="#fff"
+                            id="innercir"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="20"
+                            cx="25"
+                            cy="28"
+                        />
+                        <circle
+                            class="progress-ring__circle"
+                            id="progressRingCircle"
+                            stroke="#3dc6c1"
+                            stroke-width="4"
+                            fill="transparent"
+                            r="20"
+                            cx="25"
+                            cy="28"
+                            stroke-dasharray="125.6"
+                            stroke-dashoffset="31.4"
+                        />
+                        <text
+                            id="timertext"
+                            x="50%"
+                            y="50%"
+                            text-anchor="middle"
+                            stroke="#fff"
+                            stroke-width="1px"
+                            dy="9px"
+                            font-size="16px"
+                        >
+                            45
+                        </text>
+                    </svg>
+                </div>
+                <a class="connectTelegram"
+                    ><img
+                        src="./assets/telegram.png"
+                        alt="telegram"
+                        class="telegramlogo"
+                    />Connect Telegram</a
+                >
+                <!-- slider button -->
+                <label class="switch">
+                    <label for="toggle"></label>
+                    <input
+                        name="toggle"
+                        type="checkbox"
+                        onclick="toggle()"
+                        id="theme"
+                    />
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="displayMoney">
+            <div class="head">Best Price to Trade</div>
+            <div class="display">
+                <div class="con">
+                    <div class="number" id="5mins">0.82%</div>
+                    <div class="note">5 Mins</div>
+                </div>
+                <div class="con">
+                    <div class="number" id="1hour">1.89%</div>
+                    <div class="note">1 Hour</div>
+                </div>
+                <div class="con">
+                    <div id="avgmoney" class="big darkText">₹ 26,00,000</div>
+                    <div class="note mainnote" id="mainnote">
+                        Average BTC/INR net price including commission
+                    </div>
+                </div>
+                <div class="con">
+                    <div class="number" id="1day">3.90%</div>
+                    <div class="note">1 Day</div>
+                </div>
+                <div class="con">
+                    <div class="number" id="1week">8.90%</div>
+                    <div class="note">7 Days</div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <table class="transactions">
+                <thead class="hh">
+                    <tr class="headings">
+                        <th class="head">#</th>
+                        <th
+                            class="head"
+                            style="width: 128px;"
+                        >
+                            Platform
+                        </th>
+                        <th
+                            class="head"
+                            style="width: 180px; word-wrap: break-word"
+                        >
+                            Last Traded Place
+                        </th>
+                        <th class="head" style="width: 280px">
+                            Buy / Sell Price
+                        </th>
+                        <th class="head" style="width: 129px">Difference</th>
+                        <th class="head" style="width: 163px">Saving</th>
+                    </tr>
+                </thead>
+                <tbody class="table" id="tickerlist"></tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <div class="copy">
+                <div class="cr">Copyright © 2019</div>
+                <div class="com">HodlInfo.com</div>
+            </div>
+            <a href="mailto:support@hodlinfo.com" class="support">Support</a>
+        </div>
+
+        <script src="./index.js"></script>
+        <script src="./timer.js"></script>
+    </body>
+</html>
